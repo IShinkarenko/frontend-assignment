@@ -32,7 +32,7 @@ export function Table<T>({ data, columns, caption, className }: TableProps<T>) {
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
-                  className={cn(
+    className={cn(
                     "h-12 px-4 text-left align-middle font-medium text-muted-foreground"
                   )}
                 >
