@@ -24,6 +24,11 @@ export default function TablePage() {
       header: "Title",
       cell: (info) => info.getValue(),
     },
+    {
+      accessorKey: "body",
+      header: "Body",
+      cell: (info) => info.getValue(),
+    },
   ];
 
   return (

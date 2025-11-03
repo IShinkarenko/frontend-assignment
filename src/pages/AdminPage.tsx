@@ -38,8 +38,8 @@ export default function AdminPage() {
   return (
     <section className="space-y-6">
       <PageHeader
-        title="Admin Panel"
-        description="Toggle feature flags and restrictions."
+        title="Admin Panel 🛠️"
+        description="Toggle feature flags and restrictions 🚦"
       />
 
       <Card

@@ -23,8 +23,8 @@ export default function ConfigPage() {
   return (
     <section className="space-y-6">
       <PageHeader
-        title="Table Configuration"
-        description="Choose how many rows to display. Value is persisted across refresh."
+        title="Table Configuration ⚙️"
+        description="Choose how many rows to display. Value persists across refresh 💾"
       />
 
       <Card
