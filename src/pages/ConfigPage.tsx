@@ -29,7 +29,7 @@ export default function ConfigPage() {
 
       <Card
         title="Rows"
-        description="Both controls update the same value. Allowed range is 1–10."
+        description="Both controls update the same value. Allowed range is 1-10."
         className="space-y-4"
       >
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:items-center">

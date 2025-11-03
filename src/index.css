@@ -16,13 +16,15 @@
     --card: #ffffff;
     --card-foreground: #0f172a;
 
-    --primary: #0f172a;
+    /* Primary switched to blue */
+    --primary: #2563eb; /* blue-600 */
     --primary-foreground: #ffffff;
 
     --secondary: #f1f5f9;
     --secondary-foreground: #0f172a;
 
-    --ring: #94a3b8;
+    /* Focus ring to blue tint */
+    --ring: #60a5fa; /* blue-400 */
   }
 
   * {

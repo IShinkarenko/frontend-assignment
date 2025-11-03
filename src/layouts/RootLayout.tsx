@@ -39,7 +39,18 @@ export function RootLayout({ children }: RootLayoutProps) {
                 activeProps={{ className: "bg-slate-100 text-slate-900" }}
                 className="block rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
               >
-                {item.label}
+                {({ isActive }) => (
+                  <span className="flex items-center gap-3">
+                    <span className="truncate">{item.label}</span>
+                    <span
+                      aria-hidden
+                      className={
+                        "ml-auto inline-block h-1.5 w-1.5 rounded-full " +
+                        (isActive ? "bg-primary" : "bg-transparent")
+                      }
+                    />
+                  </span>
+                )}
               </Link>
             ))}
         </nav>

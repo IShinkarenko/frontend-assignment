@@ -34,8 +34,8 @@ export default function TablePage() {
   return (
     <section className="space-y-6">
       <PageHeader
-        title="Data Table"
-        description={`Showing ${rowsCount} row${rowsCount === 1 ? "" : "s"} based on configuration.`}
+        title="Data Table 📊"
+        description={`Showing ${rowsCount} row${rowsCount === 1 ? "" : "s"} based on configuration 📈`}
       />
 
       <Card title="Posts" className="space-y-2">
