@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { Separator } from "src/components";
+import { Divider } from "src/components";
 import { useAppSelector } from "src/app/hooks";
 
 type RootLayoutProps = {
@@ -17,12 +17,18 @@ export function RootLayout({ children }: RootLayoutProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 antialiased flex">
-      <aside className="w-48 border-r bg-slate-50/60" aria-label="Sidebar">
+    <div className="min-h-screen bg-background text-foreground antialiased flex">
+      <aside
+        className="w-56 border-r bg-white/70 backdrop-blur-sm"
+        aria-label="Sidebar"
+      >
         <div className="px-4 py-4">
-          <div className="text-sm font-semibold tracking-tight">Assignment</div>
+          <div className="text-base font-semibold tracking-tight">
+            Frontend Assignment
+          </div>
+          <div className="text-xs text-muted-foreground">Demo</div>
         </div>
-        <Separator />
+        <Divider />
         <nav className="p-2 space-y-1" aria-label="Primary">
           {navItems
             .filter((item) => !item.hidden)
@@ -30,8 +36,8 @@ export function RootLayout({ children }: RootLayoutProps) {
               <Link
                 key={item.to}
                 to={item.to}
-                activeProps={{ className: "bg-slate-200 text-slate-900" }}
-                className="block rounded px-3 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                activeProps={{ className: "bg-slate-100 text-slate-900" }}
+                className="block rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
               >
                 {item.label}
               </Link>

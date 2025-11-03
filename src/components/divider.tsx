@@ -1,17 +1,16 @@
 import { cn } from "src/utils/twMerge";
 
-type SeparatorProps = {
+type DividerProps = {
   orientation?: "horizontal" | "vertical";
   className?: string;
 };
 
-export function Separator({
+export function Divider({
   orientation = "horizontal",
   className,
-}: SeparatorProps) {
+}: DividerProps) {
   return (
     <div
-      role="separator"
       aria-orientation={orientation}
       className={cn(
         "shrink-0 bg-border",

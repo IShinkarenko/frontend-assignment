@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAppSelector } from "src/app/hooks";
-import { Card, Table } from "src/components";
+import { Card, Table, PageHeader } from "src/components";
 import type { ColumnDef } from "@tanstack/react-table";
 import { getPosts, type Post } from "src/api/posts";
 
@@ -28,25 +28,18 @@ export default function TablePage() {
 
   return (
     <section className="space-y-6">
-      <div>
-        <h1 className="text-xl font-semibold">Data Table</h1>
-        <p className="text-slate-600 mt-2">
-          Showing {rowsCount} row{rowsCount === 1 ? "" : "s"} based on
-          configuration.
-        </p>
-      </div>
+      <PageHeader
+        title="Data Table"
+        description={`Showing ${rowsCount} row${rowsCount === 1 ? "" : "s"} based on configuration.`}
+      />
 
-      <Card title="Posts">
+      <Card title="Posts" className="space-y-2">
         {isLoading ? (
-          <div className="text-slate-600">Loading…</div>
+          <div className="p-4 text-slate-600">Loading…</div>
         ) : isError ? (
-          <div className="text-red-600">{(error as Error).message}</div>
+          <div className="p-4 text-red-600">{(error as Error).message}</div>
         ) : (
-          <Table
-            data={data ?? []}
-            columns={columns}
-            caption="Data fetched from jsonplaceholder.typicode.com"
-          />
+          <Table data={data ?? []} columns={columns} />
         )}
       </Card>
     </section>

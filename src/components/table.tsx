@@ -21,20 +21,18 @@ export function Table<T>({ data, columns, caption, className }: TableProps<T>) {
   });
 
   return (
-  <div className="relative w-full overflow-auto">
+    <div className="relative w-full overflow-hidden rounded-md border bg-white">
       <table className={cn("w-full caption-bottom text-sm", className)}>
         {caption && (
-          <caption className="mt-4 text-sm text-muted-foreground">
-            {caption}
-          </caption>
+          <caption className="mt-4 text-sm text-muted-foreground">{caption}</caption>
         )}
-        <thead className="[&_tr]:border-b">
+        <thead className="bg-slate-50 [&_tr]:border-b">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id} className="border-b">
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
-    className={cn(
+                  className={cn(
                     "h-12 px-4 text-left align-middle font-medium text-muted-foreground"
                   )}
                 >

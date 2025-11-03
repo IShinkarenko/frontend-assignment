@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "src/app/hooks";
 import { setRowsCount } from "src/features/config";
-import { Card, Slider, Input, Label } from "src/components";
+import { Card, Slider, Input, Label, PageHeader } from "src/components";
 import { cn } from "src/utils/twMerge";
 
 export default function ConfigPage() {
@@ -22,19 +22,17 @@ export default function ConfigPage() {
 
   return (
     <section className="space-y-6">
-      <div>
-        <h1 className="text-xl font-semibold">Table Configuration</h1>
-        <p className="text-slate-600 mt-2">
-          Choose how many rows to display (1–10).
-        </p>
-      </div>
+      <PageHeader
+        title="Table Configuration"
+        description="Choose how many rows to display. Value is persisted across refresh."
+      />
 
       <Card
         title="Rows"
-        description="Both controls update the same value."
+        description="Both controls update the same value. Allowed range is 1–10."
         className="space-y-4"
       >
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:items-center">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:items-center">
           <div className="md:col-span-2">
             <Label className="mb-2 block" htmlFor="rows-slider">
               Slider
@@ -55,6 +53,11 @@ export default function ConfigPage() {
                 sliderDisabled ? "opacity-50 cursor-not-allowed" : ""
               )}
             />
+            <p className="mt-2 text-xs text-muted-foreground">
+              {sliderDisabled
+                ? "Slider is disabled in Admin"
+                : "Use arrow keys for fine control"}
+            </p>
           </div>
           <div>
             <Label className="mb-2 block" htmlFor="rows-input">

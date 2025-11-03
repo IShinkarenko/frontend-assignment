@@ -3,7 +3,7 @@ import {
   setDisableConfigPage,
   setDisableConfigSlider,
 } from "src/features/flags";
-import { Card, Label, Switch } from "src/components";
+import { Card, Label, Switch, PageHeader, Divider } from "src/components";
 
 type SettingsItem = {
   id: string;
@@ -37,10 +37,10 @@ export default function AdminPage() {
 
   return (
     <section className="space-y-6">
-      <div>
-        <h1 className="text-xl font-semibold">Admin Panel</h1>
-        <p className="text-slate-600 mt-2">Toggle features and restrictions.</p>
-      </div>
+      <PageHeader
+        title="Admin Panel"
+        description="Toggle feature flags and restrictions."
+      />
 
       <Card
         title="Feature Flags"
@@ -48,13 +48,16 @@ export default function AdminPage() {
         className="space-y-4"
       >
         <div className="space-y-4">
-          {settings.map((s) => (
-            <div key={s.id} className="flex items-center justify-between gap-4">
-              <div>
-                <Label className="font-medium">{s.label}</Label>
-                <p className="text-slate-600 text-sm">{s.description}</p>
+          {settings.map((s, i) => (
+            <div key={s.id}>
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <Label className="font-medium">{s.label}</Label>
+                  <p className="text-slate-600 text-sm">{s.description}</p>
+                </div>
+                <Switch checked={s.checked} onCheckedChange={s.onChange} />
               </div>
-              <Switch checked={s.checked} onCheckedChange={s.onChange} />
+              {i < settings.length - 1 ? <Divider className="my-4" /> : null}
             </div>
           ))}
         </div>

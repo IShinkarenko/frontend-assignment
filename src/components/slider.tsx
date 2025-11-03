@@ -19,13 +19,13 @@ export function Slider({ className, value, onValueChange, ...props }: SliderProp
   return (
     <input
       type="range"
-    className={cn(
-        "w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer disabled:cursor-not-allowed",
-      className
-    )}
+      className={cn(
+        "w-full h-2 rounded-lg appearance-none cursor-pointer disabled:cursor-not-allowed bg-slate-200",
+        className
+      )}
       value={current}
       onChange={(e) => onValueChange([Number(e.target.value)])}
-    {...props}
+      {...props}
     />
   );
 }
